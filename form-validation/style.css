@@ -43,13 +43,13 @@ h2 {
   margin-bottom: 10px;
   padding-bottom: 20px;
   position: relative;
-  text-transform: capitalize;
 }
 
 .form-control label {
   color: #777;
   display: block;
   margin-bottom: 8px;
+  /* text-transform: capitalize; */
 }
 
 .form-control input {
@@ -85,7 +85,6 @@ h2 {
 
 .form-control.error small {
   visibility: visible;
-  text-transform: lowercase;
 }
 
 .form button {
