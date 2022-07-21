@@ -84,6 +84,7 @@ h2 {
 
 .form-control.error small {
   visibility: visible;
+  text-transform: lowercase;
 }
 
 .form button {
