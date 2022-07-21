@@ -32,35 +32,20 @@ function isValidEmail(email) {
     );
 }
 
+function checkInputField(inputArr) {
+  inputArr.forEach((input) => {
+    console.log(input);
+    if (input.value.trim() === "") {
+      let label = input.parentElement.querySelector("label");
+      showError(input, `${label.innerText} field is required`);
+    } else {
+      showSuccess(input);
+    }
+  });
+}
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (username.value === "") {
-    // update error message
-    showError(username, "username is required");
-  } else {
-    showSuccess(username);
-  }
 
-  if (email.value === "") {
-    // update error message
-    showError(email, "email is required");
-  } else if (!isValidEmail(email)) {
-    showError(email, "email is not valid");
-  } else {
-    showSuccess(email);
-  }
-
-  if (password.value === "") {
-    // update error message
-    showError(password, "password is required");
-  } else {
-    showSuccess(password);
-  }
-
-  if (password2.value === "") {
-    // update error message
-    showError(password2, "password is required");
-  } else {
-    showSuccess(password2);
-  }
+  checkInputField([username, email, password, password2]);
 });
