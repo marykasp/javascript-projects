@@ -33,7 +33,6 @@ body {
   padding: 30px 40px;
   border-radius: 5px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-  width: 60%;
 }
 
 .select-movie {
@@ -41,14 +40,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.seat-container {
-  flex: 40%;
-  flex-grow: 0;
-  padding: 10px 40px;
-  align-items: center;
-  justify-content: center;
 }
 
 .movie-container {
@@ -126,6 +117,11 @@ p.text span {
 /* Row of seats */
 .seat-container {
   perspective: 1000px;
+  flex: 40%;
+  flex-grow: 0;
+  padding: 10px 40px;
+  align-items: center;
+  justify-content: center;
 }
 
 .seat-container .screen {
@@ -154,4 +150,33 @@ p.text span {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 850px) {
+  .wrapper {
+    flex-direction: column;
+    width: 80%;
+    gap: 0;
+  }
+
+  .select-movie {
+    width: 100%;
+  }
+
+  .movie-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .movie-container label {
+    margin-bottom: 10px;
+  }
+
+  ul.showcase {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+  }
 }
