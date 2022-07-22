@@ -4,5 +4,10 @@ Sign up form to enter your username, email, and confirm password. Form validates
 
 # Screenshot
 
-![](../design/form-validation.png)
+<img src="../design/form-validation.png" width="500" height="500" />
+
+<!-- <img src ="../design/form-demo.gif" width="500" height="600"> -->
+
+Demonstration of the validation features:
+
 ![](../design/form-demo.gif)
