@@ -2,7 +2,7 @@
 
 :root {
   --success-color: #2ecc71;
-  --error-color: #e74e3c;
+  --error-color: #e86c5e;
   --primary-color: #ae9cff;
 }
 
@@ -76,11 +76,29 @@ h2 {
 }
 
 .form-control small {
-  color: var(--error-color);
+  background-color: var(--error-color);
+  color: #fff;
+  padding: 5px;
+  border-radius: 2px;
   position: absolute;
-  bottom: 0;
+  bottom: -15px;
   left: 0;
   visibility: hidden;
+}
+
+.form-control small::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  background-color: var(--error-color);
+  left: 50%;
+  aspect-ratio: 1;
+  top: -3px;
+  transform: translateX(-50%) rotate(48deg);
+}
+
+.form-control.error {
+  margin-bottom: 30px;
 }
 
 .form-control.error small {
@@ -99,4 +117,11 @@ h2 {
   margin-top: 20px;
   width: 100%;
   cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+.form button:hover {
+  background-color: #fff;
+  color: var(--primary-color);
 }
