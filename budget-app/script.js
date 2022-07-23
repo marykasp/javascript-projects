@@ -19,3 +19,24 @@ const productTitleError = document.querySelector("#product-title-error");
 const productCostError = document.querySelector("#product-cost-error");
 
 let tempAmount = 0;
+
+// function to set budget
+function setBudget() {
+  tempAmount = totalAmount.value;
+  // empty or negative input
+  if (tempAmount === "" || tempAmount < 0) {
+    // add hide class to error message paragraph
+    errorMessage.classList.remove("hide");
+  } else {
+    errorMessage.classList.add("hide");
+    // set budget
+    amount.innerText = `$${tempAmount}`;
+    // set balance
+    balance.innerText = tempAmount - expenditureValue.innerText;
+    // clear input box
+    totalAmount.value = "";
+  }
+}
+
+// Event Listeners
+totalAmountBtn.addEventListener("click", setBudget);
