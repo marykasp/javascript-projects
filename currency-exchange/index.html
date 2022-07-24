@@ -16,6 +16,7 @@
       <h1>Currency Exchange</h1>
       <p>Enter in an amount and pick the currency to start from and the currency to convert</p>
     </header>
+    <p class="error hide">This is an error message</p>
     <form action="#">
       <div class="amount">
         <label for="amount">Amount</label>
@@ -27,16 +28,11 @@
           <p>From</p>
           <div class="select-box">
             <img src="https://cdn.countryflags.com/thumbs/united-states-of-america/flag-square-250.png" alt="flag">
-       
               <select name="currency-one" id="currency-one">
-                <option value="USD" selected>USD</option>
-                <option value="NPR">NPR</option>
-                <option value="INR">INR</option>
-                <option value="MAD">MAD</option>
               </select>
-          
           </div>
         </div>
+
         <!-- Swap currency button -->
         <div class="swap-button"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
 
@@ -44,22 +40,18 @@
         <div class="to-currency">
           <p>To</p>
           <div class="select-box">
-            <img src="https://cdn.countryflags.com/thumbs/united-kingdom/flag-square-250.png" alt="">
+            <img src="https://cdn.countryflags.com/thumbs/united-kingdom/flag-square-250.png" alt="flag">
             <select name="currency-two" id="currency-two">
-              <option value="EUR" selected>EUR</option>
-              <option value="NPR">NPR</option>
-              <option value="INR">INR</option>
-              <option value="MAD">MAD</option>
             </select>
           </div>
         </div>
       </div>
-      <p class="result exchange-rate">1 USD = 0.98 EUR</p>
+      <p class="result" id="exchange-rate">1 USD = <span>0.98 EUR</span></p>
       <button type="submit" class="submit">Get Exchange Rate</button>
     </form>
   </div>
 
-  <script src="js/countrylist.js"></script>
+  <script src="js/countrycode.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
