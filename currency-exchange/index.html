@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <title>Currency Exchange</title>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Currency Exchange</h1>
+      <p>Enter in an amount and pick the currency to start from and the currency to convert</p>
+    </header>
+    <form action="#">
+      <div class="amount">
+        <label for="amount">Amount</label>
+        <input type="number" name="amount" id="amount" placeholder="Please enter an amount">
+      </div>
+      <div class="currencies drop-list">
+        <!-- From Currencies -->
+        <div class="from-currency">
+          <p>From</p>
+          <div class="select-box">
+            <img src="https://cdn.countryflags.com/thumbs/united-states-of-america/flag-square-250.png" alt="flag">
+       
+              <select name="currency-one" id="currency-one">
+                <option value="USD" selected>USD</option>
+                <option value="NPR">NPR</option>
+                <option value="INR">INR</option>
+                <option value="MAD">MAD</option>
+              </select>
+          
+          </div>
+        </div>
+        <!-- Swap currency button -->
+        <div class="swap-button"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+
+        <!-- To Currency -->
+        <div class="to-currency">
+          <p>To</p>
+          <div class="select-box">
+            <img src="https://cdn.countryflags.com/thumbs/united-kingdom/flag-square-250.png" alt="">
+            <select name="currency-two" id="currency-two">
+              <option value="EUR" selected>EUR</option>
+              <option value="NPR">NPR</option>
+              <option value="INR">INR</option>
+              <option value="MAD">MAD</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <p class="result exchange-rate">1 USD = 0.98 EUR</p>
+      <button type="submit" class="submit">Get Exchange Rate</button>
+    </form>
+  </div>
+
+  <script src="js/countrylist.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
