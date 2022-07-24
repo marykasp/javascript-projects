@@ -3,10 +3,9 @@ const selects = document.querySelectorAll(".select-box select");
 const amount = document.querySelector("#amount");
 const currencyOne = document.querySelector("select#currency-one");
 const currencyTwo = document.querySelector("select#currency-two");
-const image = document.querySelector(".select-box img");
 
 // Buttons
-const submitButton = document.querySelector(".submit");
+const submitButton = document.querySelector("form .submit");
 const swapButton = document.querySelector(".swap-button");
 
 // constants
@@ -32,18 +31,31 @@ selects.forEach((select, index) => {
 
   // Add event listener to select - change the flag image
   select.addEventListener("change", (e) => {
-    console.log(e.target.value);
+    loadFlag(e.target);
   });
 });
 
+function loadFlag(element) {
+  // iterate over the country code list and find the matching 3letter code to the option value clicked on
+  for (code in country_code) {
+    if (code === element.value) {
+      console.log(country_code[code]);
+      let image = element.parentElement.querySelector("img");
+      // convert 2 letter codes to lowercase letters
+      let countryCode = country_code[code].toLowerCase();
+      image.src = `https://flagcdn.com/w20/${countryCode}.png`;
+    }
+  }
+}
+
 // ================== FETCH API ======================
-async function fetchExchangeRate(base) {
+async function fetchExchangeRate(base, toCurrency) {
+  // console.log(base);
   const response = await fetch(`${baseUrl}/${API_KEY}/latest/${base}`);
   const data = await response.json();
-  console.log(data.conversion_rates);
+  console.log(data);
 
-  let toCurrency = currencyTwo.value;
-
+  console.log(toCurrency);
   let exchangeRate = data.conversion_rates[toCurrency];
   let amountValue = Number.parseInt(amount.value);
   let currency = (amountValue * exchangeRate).toFixed(2);
@@ -56,12 +68,22 @@ async function fetchExchangeRate(base) {
 
 // ================== EVENT LISTENERS ======================
 // when click on submit button will fetch data from API and perfom the conversion
-submitButton.addEventListener("click", () => {
+submitButton.addEventListener("click", (e) => {
+  // prevent default submission of form
+  e.preventDefault();
+  console.log("button clicked");
   // if no value entered in the amount input show an error message
-  // currency one
-  let fromCurrency = currencyOne.value;
+  if (amount.value === "" || amount.value === null) {
+    // add show error message
+    let errorMessage = document.querySelector(".error");
+    errorMessage.classList.remove("hide");
+    errorMessage.innerText = "Please enter a value";
+  }
 
-  fetchExchangeRate(fromCurrency);
+  // get the base currency and fetch data using that base
+  let fromCurrency = currencyOne.value;
+  let toCurrency = currencyTwo.value;
+  fetchExchangeRate(fromCurrency, toCurrency);
 });
 
 // Swap button event listeners - swap the values of the select options on click
