@@ -63,6 +63,7 @@ function populateUI() {
 
 movieSelect.addEventListener("change", (e) => {
   ticketPrice = Number.parseInt(e.target.value);
+  // save the movie data in local storage - selectedIndex of the movie, will update the ticket price
   setMovieData(e.target.selectedIndex, ticketPrice);
   // update the ticket price display based on movie selected
   updateCountAndPrice();
